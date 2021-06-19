@@ -1,0 +1,27 @@
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>2D SDF explorer</title>
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/themes/prism-dark.min.css" rel="stylesheet" />
+        <link href="style.css" rel="stylesheet" />
+    </head>
+    <body>
+        <canvas id="canvas"></canvas>
+        <div id="top-box">
+            <button style="margin-bottom: 10px;" onclick="compile();draw();">Compile</button><br>
+            <div id="sdf-code">
+                <textarea id="sdf-code-edit" oninput="updateHighlight(this.value); syncScroll(this);" onscroll="syncScroll(this);" onkeydown="checkTab(this, event);" spellcheck="false">float sdf(vec2 p) {
+    return length(p) - 1.;
+}</textarea>
+                <pre id="sdf-code-highlight" aria-hidden="true"><code class="language-glsl" id="sdf-code-highlight-content"></code></pre>
+            </div>
+        </div>
+        <div id="coords-box"></div>
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/components/prism-core.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/plugins/autoloader/prism-autoloader.min.js"></script>
+        <script src="webgl_setup.js"></script>
+        <script src="sdf-codebox.js"></script>
+        <script src="sdf-explorer-2d.js"></script>
+    </body>
+</html>

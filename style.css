@@ -1,0 +1,79 @@
+body {
+    margin: 0;
+    border: 0;
+    padding: 0;
+    background-color: black;
+    color: white;
+    font-family: Consolas, monospace;
+    font-size: 0.8em;
+}
+canvas {
+    width: 100vw;
+    height: 100vh;
+}
+#coords-box {
+    position: fixed;
+    margin: 10;
+    bottom: 0;
+    left: 0;
+    z-index: 1;
+    text-shadow: /* lol */
+        0px 0px 3px #000,
+        0px 0px 3px #000,
+        0px 0px 3px #000,
+        0px 0px 3px #000,
+        0px 0px 3px #000;
+}
+
+#top-box {
+    position: fixed;
+    margin: 10;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    background-color: #000c;
+    padding: 10px;
+    min-width: 250px;
+    width: 25%;
+    height: 75%;
+    display: flex;
+    flex-direction: column;
+    border-radius: 5px;
+}
+#sdf-code {
+    position: relative;
+    top: 0;
+    left: 0;
+    font-size: 125%;
+    flex: 1 1 auto;
+}
+#sdf-code-edit, #sdf-code-highlight {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    margin: 0px;
+    padding: 0;
+    border: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    white-space: pre;
+}
+#sdf-code-edit, #sdf-code-highlight, #sdf-code-highlight * {
+    font-size: inherit;
+    font-family: monospace;
+    line-height: inherit;
+    background: transparent;
+    box-shadow: none;
+}
+#sdf-code-edit {
+    color: transparent;
+    background: transparent;
+    caret-color: white;
+    z-index: 3;
+    resize: none;
+    outline: none;
+}
+#sdf-code-highlight {
+    z-index: 2;
+}
