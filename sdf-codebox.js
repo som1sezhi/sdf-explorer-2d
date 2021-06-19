@@ -3,7 +3,7 @@
 function updateHighlight(text) {
     const elem = document.getElementById("sdf-code-highlight-content");
     elem.innerHTML = text.replace(new RegExp("&", "g"), "&amp;").replace(new RegExp("<", "g"), "&lt;");
-    console.log(elem.innerHTML);
+    //console.log(elem.innerHTML);
     Prism.highlightElement(elem);
 }
 
