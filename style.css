@@ -1,19 +1,47 @@
 body {
-    margin: 0;
-    border: 0;
-    padding: 0;
+    margin: 0px;
+    border: 0px;
+    padding: 0px;
+    width: 100vw;
+    height: 100vh;
     background-color: black;
     color: white;
     font-family: Consolas, monospace;
     font-size: 0.8em;
+    overflow: hidden;
+    user-select: none;
+}
+a:link {
+    color: #68f;
+}
+a:visited {
+    color: #a6f;
+}
+a:active {
+    color: #f66;
 }
 canvas {
-    width: 100vw;
-    height: 100vh;
+    margin: 0px;
+    padding: 0px;
+    width: 100%;
+    height: 100%;
+}
+input, button {
+    vertical-align: middle;
+}
+input {
+    background: #fff2;
+    color: white;
+    border: 1px solid white;
+    border-radius: 3px;
+}
+button {
+    margin: 0px;
+    padding: 1px 3px;
 }
 #coords-box {
     position: fixed;
-    margin: 10;
+    margin: 10px;
     bottom: 0;
     left: 0;
     z-index: 1;
@@ -24,56 +52,118 @@ canvas {
         0px 0px 3px #000,
         0px 0px 3px #000;
 }
+#bottom-box {
+    position: fixed;
+    margin: 10px;
+    bottom: 0px;
+    right: 0px;
+    z-index: 1;
+    text-shadow: /* lol */
+        0px 0px 3px #000,
+        0px 0px 3px #000,
+        0px 0px 3px #000,
+        0px 0px 3px #000,
+        0px 0px 3px #000;
+}
+
+.black-box {
+    margin: 10px;
+    background-color: #000c;
+    padding: 10px;
+    border-radius: 5px;
+}
 
 #top-box {
     position: fixed;
-    margin: 10;
+    z-index: 2;
     top: 0;
     left: 0;
-    z-index: 1;
-    background-color: #000c;
-    padding: 10px;
-    min-width: 250px;
-    width: 25%;
-    height: 75%;
+    min-width: 280px;
+    max-width: 90%;
+    width: 30%;
+    max-height: 90%;
     display: flex;
     flex-direction: column;
-    border-radius: 5px;
+    resize: both;
+    overflow: auto;
 }
-#sdf-code {
-    position: relative;
-    top: 0;
-    left: 0;
-    font-size: 125%;
+.box-item + .box-item {
+    margin-top: 10px;
+}
+.button-row {
+    display: flex;
+    flex-direction: row;
+}
+.button-row button {
+    flex: 1 1 100%;
+}
+.button-row button + button {
+    margin-left: 10px;
+}
+#code-section, #param-section {
+    flex-direction: column;
     flex: 1 1 auto;
+    min-height: 0px;
 }
-#sdf-code-edit, #sdf-code-highlight {
-    position: absolute;
-    top: 0px;
+
+#sdf-code {
+    flex: 1;
+    font-size: 125%;
+    min-height: 0px;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+input[type=number] {
+    -moz-appearance: textfield;
+}
+/*.param-entry {
+    display: flex;
+    flex-direction: row;
+}*/
+.param-name {
+    width: 80px;
+    margin-right: 5px;
+}
+.param-bounds {
+    width: 40px;
+    margin-right: 5px;
+}
+.param-entry button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: white;
+}
+.param-slider {
+    margin-top: 3px;
+    width: 95%;
+}
+
+#top-right-box {
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    right: 0;
+    width: 30%;
+    height: auto;
+}
+#share-modal {
+    position: fixed;
+    z-index: 3;
     left: 0px;
-    margin: 0px;
-    padding: 0;
-    border: 0;
+    top: 0px;
     width: 100%;
     height: 100%;
-    overflow: auto;
-    white-space: pre;
+    background: #0003;
 }
-#sdf-code-edit, #sdf-code-highlight, #sdf-code-highlight * {
-    font-size: inherit;
-    font-family: monospace;
-    line-height: inherit;
-    background: transparent;
-    box-shadow: none;
-}
-#sdf-code-edit {
-    color: transparent;
-    background: transparent;
-    caret-color: white;
-    z-index: 3;
-    resize: none;
-    outline: none;
-}
-#sdf-code-highlight {
-    z-index: 2;
+#share-modal-content {
+    background-color: #000c;
+    margin: 20vh auto;
+    padding: 12px;
+    width: 300px;
+    border-radius: 5px;
 }
